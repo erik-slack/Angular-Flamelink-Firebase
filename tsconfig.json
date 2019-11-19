@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@angular-flamelink/private/home": ["libs/private/home/src/index.ts"],
+      "@angular-flamelink/public/login": ["libs/public/login/src/index.ts"],
+      "@angular-flamelink/public/landing": ["libs/public/landing/src/index.ts"],
+      "@angular-flamelink/shared/core": ["libs/shared/core/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

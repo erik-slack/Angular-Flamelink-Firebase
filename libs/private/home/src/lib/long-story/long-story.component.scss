@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 4vw;
+  height: 165px;
+  background-color: red;
+  color: #fff;
+  padding: 0 1vw;
+  cursor: pointer;
+  border: 1px solid black;
+
+  &:hover {
+    background-color: maroon;
+  }
+  
+  h3 {
+    font-size: 1.2vw;
+    text-align: center;
+    word-break: break-word;
+    font-weight: normal;
+  }
+}

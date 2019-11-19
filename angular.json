@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "projects": {
+    "angular-flamelink": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/angular-flamelink",
+      "sourceRoot": "apps/angular-flamelink/src",
+      "prefix": "angular-flamelink",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/angular-flamelink",
+            "index": "apps/angular-flamelink/src/index.html",
+            "main": "apps/angular-flamelink/src/main.ts",
+            "polyfills": "apps/angular-flamelink/src/polyfills.ts",
+            "tsConfig": "apps/angular-flamelink/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/angular-flamelink/src/favicon.ico",
+              "apps/angular-flamelink/src/assets"
+            ],
+            "styles": ["apps/angular-flamelink/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/angular-flamelink/src/environments/environment.ts",
+                  "with": "apps/angular-flamelink/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-flamelink:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-flamelink:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-flamelink:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/angular-flamelink/tsconfig.app.json",
+              "apps/angular-flamelink/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/angular-flamelink/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/angular-flamelink/jest.config.js",
+            "tsConfig": "apps/angular-flamelink/tsconfig.spec.json",
+            "setupFile": "apps/angular-flamelink/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "angular-flamelink-e2e": {
+      "root": "apps/angular-flamelink-e2e",
+      "sourceRoot": "apps/angular-flamelink-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/angular-flamelink-e2e/cypress.json",
+            "tsConfig": "apps/angular-flamelink-e2e/tsconfig.e2e.json",
+            "devServerTarget": "angular-flamelink:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-flamelink:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/angular-flamelink-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/angular-flamelink-e2e/**"]
+          }
+        }
+      }
+    },
+    "private-home": {
+      "projectType": "library",
+      "root": "libs/private/home",
+      "sourceRoot": "libs/private/home/src",
+      "prefix": "angular-flamelink",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/private/home/tsconfig.lib.json",
+              "libs/private/home/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/private/home/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/private/home/jest.config.js",
+            "tsConfig": "libs/private/home/tsconfig.spec.json",
+            "setupFile": "libs/private/home/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "public-login": {
+      "projectType": "library",
+      "root": "libs/public/login",
+      "sourceRoot": "libs/public/login/src",
+      "prefix": "angular-flamelink",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/public/login/tsconfig.lib.json",
+              "libs/public/login/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/public/login/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/public/login/jest.config.js",
+            "tsConfig": "libs/public/login/tsconfig.spec.json",
+            "setupFile": "libs/public/login/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "public-landing": {
+      "projectType": "library",
+      "root": "libs/public/landing",
+      "sourceRoot": "libs/public/landing/src",
+      "prefix": "angular-flamelink",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/public/landing/tsconfig.lib.json",
+              "libs/public/landing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/public/landing/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/public/landing/jest.config.js",
+            "tsConfig": "libs/public/landing/tsconfig.spec.json",
+            "setupFile": "libs/public/landing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "shared-core": {
+      "projectType": "library",
+      "root": "libs/shared/core",
+      "sourceRoot": "libs/shared/core/src",
+      "prefix": "angular-flamelink",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/core/tsconfig.lib.json",
+              "libs/shared/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/core/jest.config.js",
+            "tsConfig": "libs/shared/core/tsconfig.spec.json",
+            "setupFile": "libs/shared/core/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "angular-flamelink"
+}

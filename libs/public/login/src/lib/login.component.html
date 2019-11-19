@@ -1,0 +1,16 @@
+<div class="login-container mat-elevation-z8">
+  <h1 *ngIf="!loggedIn">Sign In To Access Slack Bedtime Stories</h1>
+  <firebase-ui	
+    (signInSuccessWithAuthResult)="successCallback($event)"	
+    (signInFailure)="errorCallback($event)">	
+  </firebase-ui>
+  <button *ngIf="loggedIn"
+    (click)="signOutBtnClicked()">
+    Sign out
+  </button>
+  <button *ngIf="!loggedIn"
+    mat-stroked-button 
+    color="primary">
+    Back
+  </button>
+</div>

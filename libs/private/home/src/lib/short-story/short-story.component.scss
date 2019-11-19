@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 3.5vw;
+  height: 145px;
+  background-color: blue;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid black;
+
+  &:hover {
+    background-color: midnightblue;
+  }
+  
+  h3 {
+    font-size: 1.2vw;
+    text-align: center;
+    word-break: break-word;
+    font-weight: normal;
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "npmScope": "angular-flamelink",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "angular-flamelink-e2e": {
+      "tags": []
+    },
+    "angular-flamelink": {
+      "tags": []
+    },
+    "private-home-home": {
+      "tags": ["scope:private", "type:feature"]
+    },
+    "public-login": {
+      "tags": ["scope:public", "type:feature"]
+    },
+    "public-landing": {
+      "tags": ["scope:public", "type:feature"]
+    },
+    "shared-core": {
+      "tags": ["scope:shared", "type:feature"]
+    }
+  }
+}

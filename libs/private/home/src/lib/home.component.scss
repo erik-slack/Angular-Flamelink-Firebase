@@ -1,0 +1,55 @@
+:host {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main {
+  width: 46em;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ol {
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+  background: url('/assets/images/shelf.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0 70px;
+  box-sizing: border-box;
+}
+
+li {
+  padding: 0 .1em;
+}
+
+.story-container {
+  width: 100%;
+  height: 190px;
+}
+
+.top-shelf {
+  background: url('/assets/images/shelf.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bottom-shelf {
+  background: url('/assets/images/bottom-shelf.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 251px;
+}
+
+.open-story {
+  padding: 1em;
+}
