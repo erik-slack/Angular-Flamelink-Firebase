@@ -2,11 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService, FlamelinkService } from '@angular-flamelink/shared/core';
 import { Observable } from 'rxjs';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'angular-flamelink-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [
+    trigger('setBookOnShelf', [
+      state('in', style({ transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ transform: 'translateY(-100%)' }),
+        animate('500ms ease-out')
+      ])
+    ])
+    // trigger('openCloseStory', [
+    //   state('in', style({ transform: 'translateY(0)' })),
+    //   transition('void => *', [
+    //     style({ transform: 'translateY(-100%)' }),
+    //     animate(100)
+    //   ]),
+    //   transition('* => void', [
+    //     animate(100, style({ transform: 'translateY(100%)' }))
+    //   ])
+    // ])
+  ]
 })
 export class HomeComponent implements OnInit {
   loggedIn = false;

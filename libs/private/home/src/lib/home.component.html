@@ -1,12 +1,19 @@
 <header>
   <h1>Bedtime Stories</h1>
+
+  <button mat-stroked-button
+    class="sign-out-button"
+    (click)="signOutBtnClicked()">
+    Sign Out
+  </button>
 </header>
 
 <main>
   <div class="story-container top-shelf"></div>
   <ol class="story-container">
     <li *ngFor="let shortStory of shortStories">
-      <short-story
+      <short-story [@setBookOnShelf]
+        [ngClass]="{'not-on-shelf': shortStory === activeStory}"
         [shortStory]="shortStory"
         (click)="storyClicked('short', shortStory)">
       </short-story>
@@ -14,7 +21,8 @@
   </ol>
   <ol class="story-container">
     <li *ngFor="let longStory of longStories">
-      <long-story
+      <long-story [@setBookOnShelf]
+        [ngClass]="{'not-on-shelf': longStory === activeStory}"
         [longStory]="longStory"
         (click)="storyClicked('long', longStory)">
       </long-story>
@@ -22,19 +30,16 @@
   </ol>
   <div class="story-container bottom-shelf"></div>
 </main>
-<div class="open-story" *ngIf="activeStory && activeStoryType === 'short'">
-  <h1>{{activeStory.name}}</h1>
-  <p [innerHTML]="activeStory.text"></p>
-</div>
-<div class="open-story" *ngIf="activeStory && activeStoryType === 'long'">
-  <h1>{{activeStory.name}}</h1>
-  <div class="section" *ngFor="let section of activeStory.sections">
-    <h2 [innerHTML]="section.name"></h2>
-    <p [innerHTML]="section.text"></p>
+<div class="reading-story-container">
+  <div class="open-story" *ngIf="activeStory && activeStoryType === 'short'">
+    <h1>{{activeStory.name}}</h1>
+    <p [innerHTML]="activeStory.text"></p>
+  </div>
+  <div class="open-story" *ngIf="activeStory && activeStoryType === 'long'">
+    <h1>{{activeStory.name}}</h1>
+    <div class="section" *ngFor="let section of activeStory.sections">
+      <h2 [innerHTML]="section.name"></h2>
+      <p [innerHTML]="section.text"></p>
+    </div>
   </div>
 </div>
-
-<button class="sign-out-button"
-  (click)="signOutBtnClicked()">
-  Sign Out
-</button>

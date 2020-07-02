@@ -50,6 +50,11 @@ li {
   height: 251px;
 }
 
+.not-on-shelf {
+  cursor: default;
+  opacity: 0;
+}
+
 .open-story {
   padding: 1em;
 }
