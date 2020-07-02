@@ -1,5 +1,6 @@
 <div class="login-container mat-elevation-z8">
   <h1 *ngIf="!loggedIn">Sign In To Access Slack Bedtime Stories</h1>
+  <p>Currently logged in: {{loggedIn}}</p>
   <firebase-ui	
     (signInSuccessWithAuthResult)="successCallback($event)"	
     (signInFailure)="errorCallback($event)">	

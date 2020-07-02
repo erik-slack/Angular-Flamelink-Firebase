@@ -1,4 +1,5 @@
 import { async, TestBed } from '@angular/core/testing';
+
 import { PrivateHomeModule } from './private-home.module';
 
 describe('PrivateHomeHomeModule', () => {

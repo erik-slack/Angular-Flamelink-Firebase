@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { FirebaseService, FlamelinkService } from '@angular-flamelink/shared/core';
 import { Observable } from 'rxjs';
 
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   private longStoriesRef;
 
   constructor(
+    private router: Router,
     private firebaseService: FirebaseService,
     private flameLinkService: FlamelinkService
   ) {}
@@ -89,6 +90,11 @@ export class HomeComponent implements OnInit {
   storyClicked(type: string, story: any): void {
     this.activeStory = story;
     this.activeStoryType = type;
+  }
+
+  signOutBtnClicked(): void {
+    this.firebaseService.signOut();
+    this.router.navigate(['login']);
   }
 
 }
