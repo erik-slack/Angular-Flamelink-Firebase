@@ -1,3 +1,7 @@
+Articles that reference this repo:
+https://firebase.googleblog.com/2020/11/flamelink-cms-for-firebase.html
+https://medium.com/ngconf/build-sell-apps-not-content-angular-with-flamelink-and-firebase-2604ed9a157b
+
 # AngularFlamelink
 
 This project was generated using [Nx](https://nx.dev).
